@@ -6,10 +6,14 @@
 
 html,body {
   color: white;
-  background-color: rgb(81, 24, 135);
+  background-color: black;
   font-family: Lato, sans-serif;
-  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
+
 
 .drum-machine {
   display: flex;
@@ -19,17 +23,49 @@ html,body {
 }
 
 .contenedor-principal {
-  background-color: white;
-  width: 800px ;
-  height: 500px;
-  padding: 25px;
-  margin: 80px;
-  justify-content: center;
-  border: 5px solid yellow;
+ outline: 5px solid orange;
+    position: relative;
+    width: 660px;
+    text-align: center;
+    background-color: #b3b3b3;
 }
 
 .contenedor-teclas  {
-  background-color: burlywood;
-  width: 400px;
-  height: 400px;
+  background-color: rgb(248, 4, 4);
+  width: 332px;
+  height: 272px;
+  display: inline-block;
+  margin: 20px;
+}
+
+.fila {
+  background-color: rgb(129, 129, 208);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drum-pad  {
+  background-color: grey;
+  margin-top: 10px;
+  box-shadow: black 3px 3px 5px;
+  position: relative;
+  float: left;
+  width: 100px;
+  height: 80px;
+  margin-right: 10px;
+  border-radius: 5px;
+  padding-top: 35px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+
+.contenedor-config  {
+  background-color: black;
+  width: 240px;
+  height: 272px;
+  display: inline-block;
+  margin: 40px 20px 0 10px;
+  vertical-align: top;
 }
