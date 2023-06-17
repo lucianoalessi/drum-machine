@@ -123,7 +123,7 @@ return (
                 
 
         <div className='contenedor-config' id="display">
-          chau
+          la gordita
           </div>
 
 

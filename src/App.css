@@ -45,6 +45,13 @@ html,body {
   justify-content: center;
 }
 
+.drum-pads  {
+  width: 332px;
+  height: 272px;
+  display: inline-block;
+  margin: 20px;
+}
+
 .drum-pad  {
   background-color: grey;
   margin-top: 10px;
@@ -60,6 +67,9 @@ html,body {
   cursor: pointer;
 }
 
+.drum-pad:hover {
+  background-color: yellow;
+}
 
 .contenedor-config  {
   background-color: black;
