@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
 
 
@@ -64,23 +65,25 @@ function App() {
 
 //Create a Component: Button
 
-function Button({ clip }) {
+function Button( { clip } ) {
   const [active, setActive] = useState(false);
 
+ 
 
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyPress);
-    return () =>{
-      document.removeEventListener('keydown', handleKeyPress);
+    useEffect(() => {
+    document.addEventListener("keydown", handleKeyPress);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
     };
-  }, []);
+  }, []); 
 
 
-  const handleKeyPress = (e) => {
-    if(e.keycode === clip.keyCode){
+  const handleKeyPress = (event) => {
+    console.log(event.keyCode);
+    if (event.keyCode === clip.keyCode) {
       playSound();
     }
-  };
+  }; 
 
 
 const playSound = () => {
@@ -95,7 +98,7 @@ const playSound = () => {
 return (
   <div
   onClick={playSound}
-  className={`btn btn-secondary p-4 m-3 ${active && 'btn-warning'}`}
+  className={`drum-pad ${active && 'btn-warning'}`}
   >
     <audio className='clip' id={clip.keyTrigger} src={clip.url} />
     {clip.keyTrigger}
