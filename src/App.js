@@ -112,6 +112,9 @@ return (
       <div className='contenedor-principal' id="drum-machine">
 
         <div className='drum-pads'>
+          {audioClips.map((clip) => (
+            <Button key={clip.id} clip={clip}/>
+          ))}
 
         </div>
                 
