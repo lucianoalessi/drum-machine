@@ -62,7 +62,28 @@ function App() {
   }
 ];
 
-  
+//Create a Conponet Button
+
+function Button({ clip }) {
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyPress);
+    return () =>{
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, []);
+
+  const handleKeyPress = (e) => {
+    if(e.keycode === clip.keyCode)
+  }
+
+
+
+
+
+
+}
 
 
   return (
@@ -75,7 +96,9 @@ function App() {
         </div>
                 
 
-        <div className='contenedor-config' id="display">chau</div>
+        <div className='contenedor-config' id="display">
+          chau
+          </div>
 
 
       </div>
