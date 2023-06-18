@@ -67,9 +67,10 @@ html,body {
   cursor: pointer;
 }
 
-.drum-pad:hover {
-  background-color: yellow;
+.btn-warning, .drum-pad:hover {
+  background-color: rgb(236, 178, 17);
 }
+
 
 .contenedor-config  {
   background-color: black;

@@ -63,12 +63,19 @@ function App() {
   }
 ];
 
-//Create a Component: Button
+//display
+const [activeKey, setActiveKey] = useState('');
+
+//Create a Component: Button.
 
 function Button( { clip } ) {
+
   const [active, setActive] = useState(false);
 
- 
+  
+  
+
+// add an event for when a keyboard key is pressed perform an action.
 
     useEffect(() => {
     document.addEventListener("keydown", handleKeyPress);
@@ -82,9 +89,11 @@ function Button( { clip } ) {
     console.log(event.keyCode);
     if (event.keyCode === clip.keyCode) {
       playSound();
+      
     }
   }; 
 
+//define the playsound function to play each sound.
 
 const playSound = () => {
   const audioTag = document.getElementById(clip.keyTrigger);
@@ -92,6 +101,7 @@ const playSound = () => {
   setTimeout(() => setActive(false), 200);
   audioTag.currentTime = 0;
   audioTag.play();
+  setActiveKey(clip.keyTrigger)
 };
 
 
@@ -99,12 +109,14 @@ return (
   <div
   onClick={playSound}
   className={`drum-pad ${active && 'btn-warning'}`}
+
   >
     <audio className='clip' id={clip.keyTrigger} src={clip.url} />
     {clip.keyTrigger}
   </div>
   );
 }
+
 
 
 //rendering
@@ -123,7 +135,7 @@ return (
                 
 
         <div className='contenedor-config' id="display">
-          la gordita
+          <div> {activeKey} </div>
           </div>
 
 
