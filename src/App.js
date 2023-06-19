@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 
@@ -64,9 +63,12 @@ function App() {
 ];
 
 
+const [volume , setVolume] = useState(1)
+const [recording , setRecording] = useState('')
+
 //Create a Component: Button.
 
-function Button( { clip, volume } ) {
+function Button( { clip, volume, setRecording} ) {
 
   const [active, setActive] = useState(false);
   
@@ -85,8 +87,6 @@ function Button( { clip, volume } ) {
     console.log(event.keyCode);
     if (event.keyCode === clip.keyCode) {
       playSound();
-      console.log(event)
-      
     }
   }; 
 
@@ -94,11 +94,12 @@ function Button( { clip, volume } ) {
 
 const playSound = () => {
   const audioTag = document.getElementById(clip.keyTrigger);
-  setActive(true);
-  setTimeout(() => setActive(false), 200);
-  audioTag.volume = volume;
   audioTag.currentTime = 0;
   audioTag.play();
+  audioTag.volume = volume;
+  setActive(true);
+  setTimeout(() => setActive(false), 200);
+  setRecording(clip.id);
 };
 
 
@@ -115,8 +116,6 @@ return (
   );
 }
 
-const [volume , setVolume] = useState(1)
-const [recording , setRecording] = useState('')
 
 //rendering
 
@@ -127,7 +126,7 @@ const [recording , setRecording] = useState('')
 
         <div className='drum-pads'>
           {audioClips.map((clip) => (
-            <Button key={clip.id} clip={clip} volume={volume}/>
+            <Button key={clip.id} clip={clip} volume={volume} setRecording={setRecording}/>
           ))}
 
         </div>
@@ -145,6 +144,8 @@ const [recording , setRecording] = useState('')
           min='0'
           className='volume'
           />
+
+          <div>{recording}</div>
 
           
           </div>
