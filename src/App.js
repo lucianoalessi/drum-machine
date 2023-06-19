@@ -144,7 +144,6 @@ function Button( { clip, volume, setRecording} ) {
 
 
   const handleKeyPress = (event) => {
-    console.log(event.keyCode);
     if (event.keyCode === clip.keyCode) {
       playSound();
     }
@@ -155,8 +154,8 @@ function Button( { clip, volume, setRecording} ) {
 const playSound = () => {
   const audioTag = document.getElementById(clip.keyTrigger);
   audioTag.currentTime = 0;
-  audioTag.play();
   audioTag.volume = volume;
+  audioTag.play();
   setActive(true);
   setTimeout(() => setActive(false), 200);
   setRecording(clip.id);
