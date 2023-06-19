@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import imagen from './images/cassette-icon-cartoon-style-vector.jpg'
+import speaker from './images/speaker.png'
+import './font/PressStart2P-Regular.ttf'
+import './font/Orbitron-VariableFont_wght.ttf'
+import './font/ShareTechMono-Regular.ttf'
 
 
 function App() {
@@ -73,19 +76,28 @@ const [recording , setRecording] = useState('')
   return (
     <div className="App">
 
-      <div className='contenedor-principal' id="drum-machine">
+      <h1 className='tittle'>Drum Machine </h1>
 
-        <div className='drum-pads'>
+      <img
+          src={speaker}
+          className='speaker'/>
+
+      <div className='main-container' id="drum-machine">
+
+        <div className='drum-pads-container'>
           {audioClips.map((clip) => (
-            <Button key={clip.id} clip={clip} volume={volume} setRecording={setRecording} />
-          ))}
-
+            <Button 
+            key={clip.id} 
+            clip={clip} 
+            volume={volume} 
+            setRecording={setRecording} />
+          )
+            )
+              }
         </div>
                 
-
-        <div className='contenedor-config' id="display">
-
-          <h3>Volume</h3>
+        <div className='config-container' id="display">
+          <h4 className='volume'>Volume</h4>
           <input
           type='range'
           step='0.01'
@@ -93,22 +105,25 @@ const [recording , setRecording] = useState('')
           value={volume}
           max='1'
           min='0'
-          className='volume'
+          className='volume-range'
           />
-
-          <div className='display'>{recording}</div>
-          <div className='img'>{imagen}</div>
-
-          
+          <div className='display'>
+            {recording}
           </div>
 
+        </div>
 
       </div>
       
+      <div className='author'>
+          Designed and Coded by
+          <br/>
+          <a href='https://www.linkedin.com/in/lucianoalessi/' target='_blank'>Luciano A. Alessi</a>
+        </div>
+
     </div>
   );
 }
-
 
 
 //Create a Component: Button.
