@@ -63,16 +63,12 @@ function App() {
   }
 ];
 
-//display
-const [activeKey, setActiveKey] = useState('');
 
 //Create a Component: Button.
 
-function Button( { clip } ) {
+function Button( { clip, volume } ) {
 
   const [active, setActive] = useState(false);
-
-  
   
 
 // add an event for when a keyboard key is pressed perform an action.
@@ -89,6 +85,7 @@ function Button( { clip } ) {
     console.log(event.keyCode);
     if (event.keyCode === clip.keyCode) {
       playSound();
+      console.log(event)
       
     }
   }; 
@@ -99,9 +96,9 @@ const playSound = () => {
   const audioTag = document.getElementById(clip.keyTrigger);
   setActive(true);
   setTimeout(() => setActive(false), 200);
+  audioTag.volume = volume;
   audioTag.currentTime = 0;
   audioTag.play();
-  setActiveKey(clip.keyTrigger)
 };
 
 
@@ -109,6 +106,7 @@ return (
   <div
   onClick={playSound}
   className={`drum-pad ${active && 'btn-warning'}`}
+  id="drum-pad"
 
   >
     <audio className='clip' id={clip.keyTrigger} src={clip.url} />
@@ -117,7 +115,8 @@ return (
   );
 }
 
-
+const [volume , setVolume] = useState(1)
+const [recording , setRecording] = useState('')
 
 //rendering
 
@@ -128,14 +127,26 @@ return (
 
         <div className='drum-pads'>
           {audioClips.map((clip) => (
-            <Button key={clip.id} clip={clip}/>
+            <Button key={clip.id} clip={clip} volume={volume}/>
           ))}
 
         </div>
                 
 
         <div className='contenedor-config' id="display">
-          <div> {activeKey} </div>
+
+          <h3>Volume</h3>
+          <input
+          type='range'
+          step='0.01'
+          onChange={(event) => setVolume(event.target.value)}
+          value={volume}
+          max='1'
+          min='0'
+          className='volume'
+          />
+
+          
           </div>
 
 
