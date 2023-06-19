@@ -73,7 +73,7 @@ html,body {
 
 
 .contenedor-config  {
-  background-color: black;
+  
   width: 240px;
   height: 272px;
   display: inline-block;
@@ -81,6 +81,11 @@ html,body {
   vertical-align: top;
 }
 
-.clip {
-  background-color: white;
+
+.display {
+  width: 200px;
+  background-color: gray;
+  margin: 15px auto;
+  padding: 15px;
+  box-sizing: border-box;
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import imagen from './images/cassette-icon-cartoon-style-vector.jpg'
 
 
 function App() {
@@ -66,6 +67,50 @@ function App() {
 const [volume , setVolume] = useState(1)
 const [recording , setRecording] = useState('')
 
+
+//rendering
+
+  return (
+    <div className="App">
+
+      <div className='contenedor-principal' id="drum-machine">
+
+        <div className='drum-pads'>
+          {audioClips.map((clip) => (
+            <Button key={clip.id} clip={clip} volume={volume} setRecording={setRecording} />
+          ))}
+
+        </div>
+                
+
+        <div className='contenedor-config' id="display">
+
+          <h3>Volume</h3>
+          <input
+          type='range'
+          step='0.01'
+          onChange={(event) => setVolume(event.target.value)}
+          value={volume}
+          max='1'
+          min='0'
+          className='volume'
+          />
+
+          <div className='display'>{recording}</div>
+          <div className='img'>{imagen}</div>
+
+          
+          </div>
+
+
+      </div>
+      
+    </div>
+  );
+}
+
+
+
 //Create a Component: Button.
 
 function Button( { clip, volume, setRecording} ) {
@@ -102,13 +147,11 @@ const playSound = () => {
   setRecording(clip.id);
 };
 
-
 return (
   <div
   onClick={playSound}
-  className={`drum-pad ${active && 'btn-warning'}`}
+  className={`drum-pad ${active && "btn-warning"}`}
   id="drum-pad"
-
   >
     <audio className='clip' id={clip.keyTrigger} src={clip.url} />
     {clip.keyTrigger}
@@ -117,44 +160,5 @@ return (
 }
 
 
-//rendering
-
-  return (
-    <div className="drum-machine">
-
-      <div className='contenedor-principal' id="drum-machine">
-
-        <div className='drum-pads'>
-          {audioClips.map((clip) => (
-            <Button key={clip.id} clip={clip} volume={volume} setRecording={setRecording}/>
-          ))}
-
-        </div>
-                
-
-        <div className='contenedor-config' id="display">
-
-          <h3>Volume</h3>
-          <input
-          type='range'
-          step='0.01'
-          onChange={(event) => setVolume(event.target.value)}
-          value={volume}
-          max='1'
-          min='0'
-          className='volume'
-          />
-
-          <div>{recording}</div>
-
-          
-          </div>
-
-
-      </div>
-      
-    </div>
-  );
-}
 
 export default App;
