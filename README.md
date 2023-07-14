@@ -1,6 +1,6 @@
 ## Drum Machine
 
-This project is a Drum Machine and I have done it to get the "Front End Development Libraries" certification from Free Code Camp. It was developed mainly with **React JS**.
+Drum Machine is a personal project that I did to obtain the "Front End Development Libraries" certification from Free Code Camp. It was developed mainly with **React JS**.
 
 #### Functionalities
 
