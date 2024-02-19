@@ -4,6 +4,12 @@ import speaker from './images/speaker.png'
 import './font/PressStart2P-Regular.ttf'
 import './font/Orbitron-VariableFont_wght.ttf'
 import './font/ShareTechMono-Regular.ttf'
+import { ProgressBar } from 'react-bootstrap'; // Importa el componente ProgressBar de react-bootstrap
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+
+
 
 
 function App() {
@@ -68,6 +74,7 @@ function App() {
   //states
 
   const [volume , setVolume] = useState(1)
+  const [volumePercent, setVolumePercent] = useState('100%') // Nuevo estado
   const [recording , setRecording] = useState('')
 
 
@@ -75,11 +82,14 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className='tittle'>Drum Machine </h1>
-      <img
-        src={speaker}
-        className='speaker'
-      />
+
+      <div className='tittle-container'>
+        <h1 className='tittle'>Drum Machine </h1>
+        <img
+          src={speaker}
+          className='speaker'
+        />
+      </div>
 
       <div className='main-container' id="drum-machine">
         <div className='drum-pads-container'>
@@ -91,13 +101,20 @@ function App() {
               setRecording={setRecording}
             />
           ))}
-        </div>      
+        </div>   
+
         <div className='config-container' id="display">
           <h4 className='volume'>Volume</h4>
+          <div div className='display'>
+            {volumePercent} {/* Mostrar el volumen en porcentaje */}
+          </div>
           <input
             type='range'
             step='0.01'
-            onChange={(event) => setVolume(event.target.value)}
+            onChange={(event) => {
+              setVolume(event.target.value)
+              setVolumePercent((event.target.value * 100).toFixed(0) + '%') // Actualizar el volumen en porcentaje
+            }}
             value={volume}
             max='1'
             min='0'
@@ -110,10 +127,11 @@ function App() {
       </div>
 
       <div className='author'>
-          Designed and Coded by
-          <br/>
-          <a href='https://www.linkedin.com/in/lucianoalessi/' target='_blank'>Luciano A. Alessi</a>
-        </div>
+        Designed and Coded by
+        <br/>
+        <a href='https://www.lucianoalessi.com' target='_blank'>Luciano A. Alessi</a>
+      </div>
+
     </div>
   );
 }
@@ -132,7 +150,7 @@ function Button( { clip, volume, setRecording} ) {
     return () => {
       document.removeEventListener("keydown", handleKeyPress);
     };
-  }, []); 
+  }, [volume]); 
 
   const handleKeyPress = (event) => {
     if (event.keyCode === clip.keyCode) {

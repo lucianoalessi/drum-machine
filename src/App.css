@@ -1,95 +1,127 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html,body {
-  color: white;
   background-color: black;
+  color: #f5f5f5;
   font-family: Lato, sans-serif;
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
-
+/*APP CONTAINER*/
 
 .App {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+/*TITULO*/
+.tittle-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
 }
 
 .tittle{
   font-family: 'Press Start 2P', cursive;
   font-size: 40px;
+  justify-content: center;
+  align-items: center;
 }
 
 .speaker{
-  height: 80px;
-  margin: 50px;
+  margin-bottom: 60px;
+  width: 80px; /* Cambia esto al tamaño que desees */
+  height: auto; /* Esto mantendrá la proporción de la imagen */
 }
 
+/*CONTENEDOR PRINCIPAL*/
 .main-container {
-    outline: 5px solid orange;
-    position: relative;
-    width: 660px;
-    text-align: center;
-    background-color: #b3b3b3;
-    color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  padding: 25px;
+  outline: 5px solid orange;
+  background-color: #333;
+  color: #f5f5f5;
+  padding: 10px; /* Añade un poco de padding alrededor del contenido */
 }
 
-
-.drum-pads-container  {
-  width: 332px;
-  height: 272px;
-  display: inline-block;
-  margin: 20px;
+/*CONTENEDOR BOTONES*/
+.drum-pads-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin: 10px;
+  padding: 10px;
 }
 
-/*Buttoms*/
+/*BOTONES*/
+.drum-pad {
+  text-align: center;
 
-.drum-pad  {
-  background-color: grey;
-  margin-top: 10px;
-  box-shadow: black 3px 3px 5px;
-  position: relative;
-  float: left;
-  width: 100px;
-  height: 80px;
-  margin-right: 10px;
+  background-color: #555;
+  color: #f5f5f5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   padding-top: 35px;
   box-sizing: border-box;
   cursor: pointer;
   font-family: 'Orbitron', sans-serif;
   font-size: 20px;
+
+  /* Asegurarse de que los botones sean cuadrados */
+
+  aspect-ratio: 1 / 1;
+  
+  /* Alinear el texto al centro del botón */
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 0px 40px 0px 40px;
 }
 
 .btn-warning, .drum-pad:hover {
-  background-color: rgb(236, 178, 17);
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Transiciones suaves para los cambios de estado */
+.drum-pad, .btn-warning, .drum-pad:hover {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Efecto de "pulsación" para los botones de la batería */
+.drum-pad:active {
+  transform: scale(0.95);
 }
 
 /*Volume and Display */
 
 .config-container {
-  
-  width: 240px;
-  height: 272px;
-  display: inline-block;
-  margin: 40px 20px 0 10px;
-  vertical-align: top;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 10px;
+  padding-bottom: 60px;
 }
 
 .volume {
   font-family: 'Orbitron', sans-serif;
-  font-size: 20px;
+  font-size: 30px;
 }
-.volume-range { 
-    margin: 12.5px 0;
+.volume-range {
     width: 100%;
     border: 25px;
 }
@@ -103,7 +135,7 @@ html,body {
 }
 
 .display {
-  width: 200px;
+  width: 220px;
   background-color: gray;
   margin: 15px auto;
   padding: 15px;
@@ -112,6 +144,7 @@ html,body {
   color: rgb(32, 255, 3);
   -webkit-text-stroke: 0.25px black;
   text-shadow: -2px 2px black;
+  text-align: center;
 }
 
 
@@ -130,4 +163,88 @@ html,body {
   text-decoration: none;
   color: #ffd900;
   line-height: 26px;
+}
+
+
+/*BOTONES FOOTER*/
+
+/* Estilos para dispositivos con pantalla grande */
+@media (min-width: 1200px) {
+
+  .App {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .main-container {
+    width: 80%;
+  }
+
+  .drum-pads-container, .config-container {
+    width: 45%;
+  }
+
+  .drum-pad {
+    width: 30%;
+  }
+
+}
+
+/* Estilos para dispositivos con pantalla mediana */
+@media (min-width: 768px) and (max-width: 1199px) {
+
+  .App {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .main-container {
+    width: 90%;
+  }
+
+  .drum-pads-container, .config-container {
+    width: 45%;
+  }
+
+  .drum-pad {
+    width: 30%;
+  }
+}
+
+/* Estilos para dispositivos con pantalla pequeña */
+@media (max-width: 767px) {
+  
+  .App {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+
+  .main-container {
+    width: 90%; /* Aumenta el ancho para aprovechar más espacio en pantallas pequeñas */
+  }
+
+  .drum-pads-container, .config-container {
+    width: 100%;
+  }
+
+  .drum-pad {
+    width: 30%; /* Ajusta el tamaño de los botones para que sean más grandes en pantallas pequeñas */
+  }
+
+  .tittle {
+    font-size: 1.2rem; /* Reduce el tamaño de la fuente para que se ajuste mejor en pantallas pequeñas */
+  }
+
+  .volume {
+    font-size: 1rem; /* Reduce el tamaño de la fuente para que se ajuste mejor en pantallas pequeñas */
+  }
+
+  .author {
+    font-size: 0.8rem; /* Reduce el tamaño de la fuente para que se ajuste mejor en pantallas pequeñas */
+  }
+
+  .author a {
+    font-size: 0.8rem; /* Reduce el tamaño de la fuente para que se ajuste mejor en pantallas pequeñas */
+  }
 }
