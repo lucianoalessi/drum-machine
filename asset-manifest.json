@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/drum-machine/static/css/main.4fbb2919.css",
-    "main.js": "/drum-machine/static/js/main.385dd611.js",
+    "main.css": "/drum-machine/static/css/main.63e824e1.css",
+    "main.js": "/drum-machine/static/js/main.8be107bf.js",
     "static/media/PressStart2P-Regular.ttf": "/drum-machine/static/media/PressStart2P-Regular.21503c6a5385ab41dde9.ttf",
     "static/media/ShareTechMono-Regular.ttf": "/drum-machine/static/media/ShareTechMono-Regular.612f305b9343c25ccace.ttf",
     "static/media/Orbitron-VariableFont_wght.ttf": "/drum-machine/static/media/Orbitron-VariableFont_wght.7228a1c750b75b23bdb4.ttf",
     "static/media/speaker.png": "/drum-machine/static/media/speaker.77fe9c3489d2078cb390.png",
     "index.html": "/drum-machine/index.html",
-    "main.4fbb2919.css.map": "/drum-machine/static/css/main.4fbb2919.css.map",
-    "main.385dd611.js.map": "/drum-machine/static/js/main.385dd611.js.map"
+    "main.63e824e1.css.map": "/drum-machine/static/css/main.63e824e1.css.map",
+    "main.8be107bf.js.map": "/drum-machine/static/js/main.8be107bf.js.map"
   },
   "entrypoints": [
-    "static/css/main.4fbb2919.css",
-    "static/js/main.385dd611.js"
+    "static/css/main.63e824e1.css",
+    "static/js/main.8be107bf.js"
   ]
 }
