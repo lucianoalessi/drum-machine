@@ -4,12 +4,6 @@ import speaker from './images/speaker.png'
 import './font/PressStart2P-Regular.ttf'
 import './font/Orbitron-VariableFont_wght.ttf'
 import './font/ShareTechMono-Regular.ttf'
-import { ProgressBar } from 'react-bootstrap'; // Importa el componente ProgressBar de react-bootstrap
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGlobe } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-
-
 
 
 function App() {
@@ -172,9 +166,9 @@ function Button( { clip, volume, setRecording} ) {
 
   return (
     <div
-    onClick={playSound}
-    className={`drum-pad ${active && "btn-warning"}`}
-    id="drum-pad"
+      onClick={playSound}
+      className={`drum-pad ${active && "btn-warning"}`}
+      id="drum-pad"
     >
       <audio className='clip' id={clip.keyTrigger} src={clip.url} />
       {clip.keyTrigger}

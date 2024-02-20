@@ -25,6 +25,7 @@ html,body {
   flex-direction: column;
   align-items: center;
   align-content: center;
+
 }
 
 .tittle{
@@ -32,12 +33,14 @@ html,body {
   font-size: 40px;
   justify-content: center;
   align-items: center;
+  margin-bottom: 60px;
 }
 
 .speaker{
   margin-bottom: 60px;
-  width: 80px; /* Cambia esto al tamaño que desees */
-  height: auto; /* Esto mantendrá la proporción de la imagen */
+  width: 80px; 
+  height: auto; 
+  margin-bottom: 60px;
 }
 
 /*CONTENEDOR PRINCIPAL*/
@@ -52,7 +55,7 @@ html,body {
   outline: 5px solid orange;
   background-color: #333;
   color: #f5f5f5;
-  padding: 10px; /* Añade un poco de padding alrededor del contenido */
+  padding: 10px; 
 }
 
 /*CONTENEDOR BOTONES*/
@@ -77,8 +80,6 @@ html,body {
   cursor: pointer;
   font-family: 'Orbitron', sans-serif;
   font-size: 20px;
-
-  /* Asegurarse de que los botones sean cuadrados */
 
   aspect-ratio: 1 / 1;
   
@@ -114,16 +115,19 @@ html,body {
   align-items: center;
   align-content: center;
   margin: 10px;
-  padding-bottom: 60px;
+  padding-bottom: 50px;
 }
 
 .volume {
   font-family: 'Orbitron', sans-serif;
   font-size: 30px;
 }
+
 .volume-range {
-    width: 100%;
+    width: 220px;
     border: 25px;
+    margin-bottom: 15px;
+
 }
 .volume-range::-webkit-slider-thumb{
   -webkit-appearance: none;
@@ -135,6 +139,7 @@ html,body {
 }
 
 .display {
+  height: 50px;
   width: 220px;
   background-color: gray;
   margin: 15px auto;
@@ -145,6 +150,7 @@ html,body {
   -webkit-text-stroke: 0.25px black;
   text-shadow: -2px 2px black;
   text-align: center;
+
 }
 
 
@@ -165,8 +171,6 @@ html,body {
   line-height: 26px;
 }
 
-
-/*BOTONES FOOTER*/
 
 /* Estilos para dispositivos con pantalla grande */
 @media (min-width: 1200px) {
@@ -221,7 +225,7 @@ html,body {
   
 
   .main-container {
-    width: 90%; /* Aumenta el ancho para aprovechar más espacio en pantallas pequeñas */
+    width: 90%; 
   }
 
   .drum-pads-container, .config-container {
@@ -229,22 +233,22 @@ html,body {
   }
 
   .drum-pad {
-    width: 30%; /* Ajusta el tamaño de los botones para que sean más grandes en pantallas pequeñas */
+    width: 30%; 
   }
 
   .tittle {
-    font-size: 1.2rem; /* Reduce el tamaño de la fuente para que se ajuste mejor en pantallas pequeñas */
+    font-size: 1.2rem; 
   }
 
   .volume {
-    font-size: 1rem; /* Reduce el tamaño de la fuente para que se ajuste mejor en pantallas pequeñas */
+    font-size: 1rem; 
   }
 
   .author {
-    font-size: 0.8rem; /* Reduce el tamaño de la fuente para que se ajuste mejor en pantallas pequeñas */
+    font-size: 0.8rem; 
   }
 
   .author a {
-    font-size: 0.8rem; /* Reduce el tamaño de la fuente para que se ajuste mejor en pantallas pequeñas */
+    font-size: 0.8rem; 
   }
 }
